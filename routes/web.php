@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Storage;
 
 Route::get('/', 'User\HomeController@index');
 Route::post('/upload', 'User\HomeController@upload')->name('upload');
+
+
+Route::get('/admin', 'Admin\HomeController@index');
