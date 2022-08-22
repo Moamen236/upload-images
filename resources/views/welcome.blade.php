@@ -8,7 +8,7 @@
 
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body class="antialiased">
         
@@ -49,6 +49,6 @@
             <button type="submit" class="btn btn-primary">upload</button>
         </form>
 
-        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ secure_asset('js/main.js') }}"></script>
     </body>
 </html>
