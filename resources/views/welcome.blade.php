@@ -27,7 +27,7 @@
         <h2 class="mb-4">File Upload & Image Preview</h2>
 
         <!-- Upload  -->
-        <form id="file-upload-form" class="uploader" action="{{ route('upload') }}" method="post" enctype="multipart/form-data">
+        <form id="file-upload-form" class="uploader" action="{{ secure_url('/upload') }}" method="post" enctype="multipart/form-data"> {{-- https://up-images.herokuapp.com/ --}}
             @csrf
             <input id="file-upload" type="file" name="image" accept="image/*" />
 
