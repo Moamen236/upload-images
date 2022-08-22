@@ -24,7 +24,7 @@ class HomeController extends Controller
         $extension = pathinfo($fileOriginalName, PATHINFO_EXTENSION);
         $filename = pathinfo($fileOriginalName, PATHINFO_FILENAME) . '-' . time() . ($extension ? '.' . $extension : '');
         
-        $path = Storage::disk('local')->putFileAs(
+        $path = Storage::disk('uploads')->putFileAs(
             'images',
             $request->image,
             $filename

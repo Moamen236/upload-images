@@ -27,7 +27,7 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>
-                                            <img src="{{ secure_asset('storage/'.$image->image) }}" alt="" width="100px">
+                                            <img src="{{ secure_asset('uploads/'.$image->image) }}" alt="" width="100px">
                                         </td>
                                     </tr>
                                 @endforeach
