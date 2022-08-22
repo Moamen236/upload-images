@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class HomeController extends Controller
 {
@@ -23,16 +24,18 @@ class HomeController extends Controller
         $fileOriginalName = $request->image->getClientOriginalName();
         $extension = pathinfo($fileOriginalName, PATHINFO_EXTENSION);
         $filename = pathinfo($fileOriginalName, PATHINFO_FILENAME) . '-' . time() . ($extension ? '.' . $extension : '');
-        
-        $path = Storage::disk('uploads')->putFileAs(
-            'images',
-            $request->image,
-            $filename
-        );
+
+        // $path = Storage::disk('uploads')->putFileAs(
+        //     'images',
+        //     $request->image,
+        //     $filename
+        // );
+
+        $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
 
         $upload_image = Image::create([
             'name' => $filename,
-            'image' => $path
+            'image' => $uploadedFileUrl
         ]);
 
         if($upload_image)

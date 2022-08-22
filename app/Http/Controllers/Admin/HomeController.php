@@ -18,7 +18,9 @@ class HomeController extends Controller
 
     public function download(Image $image)
     {
-        $file_name = public_path('uploads'). '/' . $image->image;
-        return Response::download($file_name);
+        // $file_name = public_path('uploads'). '/' . $image->image;
+        $image_url = file_get_contents($image->image);
+        // dd($image_url);
+        return Response::download($image_url);
     }
 }
