@@ -21,3 +21,4 @@ Route::post('/upload', 'User\HomeController@upload')->name('upload');
 
 
 Route::get('/admin', 'Admin\HomeController@index');
+Route::get('/admin/download/{image}', 'Admin\HomeController@download')->name('download.image');
