@@ -28,7 +28,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $request->validate([
             'name' => 'required|string',
             'password' => 'required|string'
@@ -40,7 +40,7 @@ class AuthController extends Controller
             if($isCorrect){
                 $credentials = $request->only('name', 'password');    
                 if(Auth::attempt($credentials)){
-                    return redirect('/admin')->with(['status' => 'Login Successfully']);
+                    return redirect(secure_url('/admin'))->with(['status' => 'Login Successfully']);
                 }
             }else{
                 return back()->with(['error' => 'Password is incorrect']);
