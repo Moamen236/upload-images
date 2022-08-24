@@ -9,9 +9,15 @@ use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $images = Image::all();
+        $images = Image::paginate(10);
 
         return view('admin' , compact('images'));
     }

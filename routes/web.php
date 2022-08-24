@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('/', 'User\HomeController@index');
+Route::get('/', 'User\HomeController@index')->name('home');
 Route::post('/upload', 'User\HomeController@upload')->name('upload');
 
+Route::get('/login', 'Admin\AuthController@show')->name('login');
+Route::post('/login', 'Admin\AuthController@login')->name('login');
 
-Route::get('/admin', 'Admin\HomeController@index');
-Route::get('/admin/download/{image}', 'Admin\HomeController@download')->name('download.image');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('/admin/download/{image}', 'Admin\HomeController@download')->name('download.image');
+    Route::get('/logout', 'Admin\AuthController@logout')->name('logout');
+});

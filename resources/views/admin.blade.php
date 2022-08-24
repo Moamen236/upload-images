@@ -11,9 +11,37 @@
     <title>Admin</title>
 </head>
 <body>
-    <section>
+    <section class="mt-5">
         <div class="container">
-            <div class="card mt-5">
+            @if (session('status'))
+                <div class="alert alert-dismissible alert-success" role="alert">
+                    {{ __(session('status')) }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-dismissible alert-danger" role="alert">
+                    {{ __(session('error')) }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if($errors->any())
+                <div class="alert alert-dismissible alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            <div class="row justify-content-end mt-3">
+                <div class="col-2 text-end">
+                    <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
+                    <a href="{{ route('logout') }}" class="btn btn-danger">logout</a>
+                </div>
+            </div>
+            <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="card-title text-start">All images</h5>
                     <div class="row">
@@ -24,26 +52,23 @@
                                         <tr>
                                             <th scope="col" class="text-center">#</th>
                                             <th scope="col" class="text-center">image</th>
-                                            <th scope="col" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($images as $image)
                                             <tr>
-                                                <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+                                                <th scope="row" class="text-center">{{ $image->id }}</th>
                                                 <td class="text-center">
-                                                    {{-- <img src="{{ asset('uploads/'.$image->image) }}" alt="" width="100px"> --}}
                                                     <img src="{{ $image->image }}" alt="" width="100px">
                                                 </td>
-                                                {{-- <td class="text-center">
-                                                    <a href="{{ url("admin/download/$image->id") }}" class="btn btn-primary btn-sm">
-                                                        <i class="fa-solid fa-download"></i>
-                                                    </a>
-                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="float-end">
+                                    {{ $images->links() }}
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
@@ -51,5 +76,6 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

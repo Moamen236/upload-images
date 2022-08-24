@@ -22,7 +22,7 @@ h2 {
     font-family: "Roboto", sans-serif;
     font-size: 26px;
     line-height: 1;
-    color: #454cad;
+    color: #121317;
     margin-bottom: 0;
 }
 
@@ -38,6 +38,7 @@ p {
     margin: 0 auto;
     width: 100%;
     max-width: 600px;
+    padding: 20px;
 }
 
 .uploader label {
@@ -57,11 +58,11 @@ p {
 }
 
 .uploader label:hover {
-    border-color: #454cad;
+    border-color: #121317;
 }
 
 .uploader label.hover {
-    border: 3px solid #454cad;
+    border: 3px solid #121317;
     box-shadow: inset 0 0 0 6px #eee;
 }
 
@@ -143,12 +144,12 @@ p {
 }
 
 .uploader .progress[value]::-webkit-progress-value {
-    background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+    background: linear-gradient(to right, #393f90 0%, #121317 50%);
     border-radius: 4px;
 }
 
 .uploader .progress[value]::-moz-progress-bar {
-    background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+    background: linear-gradient(to right, #393f90 0%, #121317 50%);
     border-radius: 4px;
 }
 
@@ -179,8 +180,8 @@ p {
     color: #fff;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
-    background: #454cad;
-    border-color: #454cad;
+    background: #121317;
+    border-color: #121317;
     cursor: pointer;
 }
 
@@ -196,5 +197,69 @@ header{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 50vh;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login .form{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 50px;
+    text-align: left;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px solid #ededed;
+}
+
+.login .form h1{
+    font-size: 30px;
+    color: #555;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.login .form label{
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.login .form input{
+    color: #555555;
+    line-height: 1.2;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    background: transparent;
+    height: 55px;
+    padding: 0 25px 0 25px;
+}
+
+.login .form .btn{
+    padding: 0 20px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 55px;
+    background-color: #333;
+    border: none;
+    text-align: center;
+    float: right;
 }
