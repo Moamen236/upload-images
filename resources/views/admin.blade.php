@@ -37,8 +37,8 @@
             @endif
             <div class="row justify-content-end mt-3">
                 <div class="col-2 text-end">
-                    <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
-                    <a href="{{ route('logout') }}" class="btn btn-danger">logout</a>
+                    <a href="{{ secure_url('/') }}" class="btn btn-primary">Home</a>
+                    <a href="{{ secure_url('/logout') }}" class="btn btn-danger">logout</a>
                 </div>
             </div>
             <div class="card mt-2">

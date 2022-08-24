@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="{{ asset('image/logo.png') }}"/>
-        <link rel='shortcut icon' type='image/x-icon' href="{{ asset('image/logo.png') }}"/>
+        <link rel="shortcut icon" type="image/png" href="{{ secure_asset('image/logo.png') }}"/>
+        <link rel='shortcut icon' type='image/x-icon' href="{{ secure_asset('image/logo.png') }}"/>
         <title>P&G Alumni</title>
 
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body>
         <section class="login mt-5 pb-4">
@@ -41,7 +41,7 @@
 
                         <div class="form">
                             <h1 class="mb-3 fw-bold">Account Login</h1>
-                            <form action="{{ route('login') }}" method="post">
+                            <form action="{{ secure_url('/login') }}" method="post">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Username</label>
