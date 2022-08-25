@@ -58,7 +58,7 @@
                                     <tbody>
                                         @foreach ($images as $image)
                                             <tr>
-                                                <th scope="row" class="text-center">{{ $image->id }}</th>
+                                                <th scope="row" class="text-center">{{ $loop->iteration }}</th>
                                                 <td class="text-center">
                                                     <img src="{{ $image->image }}" alt="" width="100px">
                                                 </td>
