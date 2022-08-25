@@ -63,7 +63,7 @@
                                                     <img src="{{ $image->image }}" alt="" width="100px">
                                                 </td>
                                                 <td class="text-center">
-                                                    <form id="deleteForm" action="{{ route('image.destroy', $image->id) }}" method="POST">
+                                                    <form id="deleteForm" action="{{ secure_url("/admin/image/destroy/$image->id") }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         {{-- <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button> --}}
