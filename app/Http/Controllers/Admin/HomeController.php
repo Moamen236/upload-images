@@ -29,4 +29,10 @@ class HomeController extends Controller
         // dd($image_url);
         return Response::download($image_url);
     }
+
+    public function destroy(Image $image)
+    {
+        $image->delete();
+        return back()->with('status', trans('Deleted Successfully'));
+    }
 }

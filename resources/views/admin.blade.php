@@ -52,6 +52,7 @@
                                         <tr>
                                             <th scope="col" class="text-center">#</th>
                                             <th scope="col" class="text-center">image</th>
+                                            <th scope="col" class="text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -60,6 +61,21 @@
                                                 <th scope="row" class="text-center">{{ $image->id }}</th>
                                                 <td class="text-center">
                                                     <img src="{{ $image->image }}" alt="" width="100px">
+                                                </td>
+                                                <td class="text-center">
+                                                    <form id="deleteForm" action="{{ route('image.destroy', $image->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        {{-- <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button> --}}
+                                                        <a href="#" onclick="
+                                                        console.log('hi');
+                                                            event.preventDefault();
+                                                            if(confirm('Are you sure you want to delete these rows?')) {
+                                                                document.getElementById('deleteForm').submit();
+                                                            }" class="btn btn-danger">
+                                                            <i class="fa-solid fa-trash-can"></i>
+                                                        </a>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

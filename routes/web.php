@@ -24,6 +24,7 @@ Route::post('/login', 'Admin\AuthController@login')->name('login');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', 'Admin\HomeController@index')->name('admin.home');
+    Route::delete('/admin/image/destroy/{image}', 'Admin\HomeController@destroy')->name('image.destroy');
     Route::get('/admin/download/{image}', 'Admin\HomeController@download')->name('download.image');
     Route::get('/logout', 'Admin\AuthController@logout')->name('logout');
 });
